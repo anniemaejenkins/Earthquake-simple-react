@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 
+import EarthquakeInfo from './EarthquakeInfo';
 import EarthquakeList from './EarthquakeList';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-
-        {EarthquakeList}
-
+        <div className="title">
+          {EarthquakeInfo}
+          {EarthquakeList}
+          <div className="my-header">
+          Earthquakes!
+          </div>
+        </div>
       </div>
     );
   }
