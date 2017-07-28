@@ -9,11 +9,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="title">
-          {EarthquakeInfo}
-          {EarthquakeList}
-          <div className="my-header">
-          Earthquakes!
-          </div>
+          <div className="my-header">Earthquakes!</div>
+          <EarthquakeInfo />
+          <EarthquakeList />
         </div>
       </div>
     );

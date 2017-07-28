@@ -1,22 +1,19 @@
 import React, {Component} from 'react';
 import moment from 'moment';
-
 import earthquakes from './../data/Earthquakes.js'
-import EarthquakeInfo from './EarthquakeInfo';
-
 
 export default class EarthquakeList extends Component{
   render(){
-    let earthQuakes = earthquakes.features.map((earthquake)=>{
+    let earthQuakes = earthquakes.features.map((feature)=>{
       return(
-        <div className="col-sm-6" key={earthquake.id}>
+        <div className="col-sm-6" key={feature.id}>
           <div className="card" >
             <div className="card-block">
-              <h4 className="card-title">{earthquake.features.properties.place}</h4>
-              <h6 className="card-subtitle mb-2 text-muted">Magnitude: {earthquake.features.properties.mag}</h6>
-              <h6 className="card-subtitle mb-2 text-muted">Time: {moment(earthquake.features.properties.time).format('llll')}</h6>
-              <p className="card-text">Coordinates: {earthquake.features.geometry.coordinates}</p>
-              <a href={earthquake.features.properties.url} className="card-link">USGS Event Link</a>
+              <h4 className="card-title">{feature.properties.place}</h4>
+              <h6 className="card-subtitle mb-2 text-muted">Magnitude: {feature.properties.mag}</h6>
+              <h6 className="card-subtitle mb-2 text-muted">Time: {moment(feature.properties.time).format('llll')}</h6>
+              <p className="card-text">Coordinates: {feature.geometry.coordinates}</p>
+              <a href={feature.properties.url} className="card-link">USGS Event Link</a>
             </div>
           </div>
         </div>
@@ -25,9 +22,7 @@ export default class EarthquakeList extends Component{
 
     return(
       <div>
-        <EarthquakeInfo />
         {earthQuakes}
-
       </div>
     )
   }
